@@ -256,12 +256,181 @@
       color: var(--text-color);
       border-top: 5px solid var(--accent-pink);
     }
+
+
+
+
+    @media (max-width: 1024px) {
+  header h1 {
+    font-size: 2.8rem;
+  }
+
+  nav ul {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .banner {
+    height: 50vh;
+  }
+
+  .gallery {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .banner {
+    height: 40vh;
+  }
+
+  .dress-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .dress-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-form {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  header img {
+    height: 100px;
+  }
+
+  .banner {
+    height: 30vh;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p, li {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .review-card {
+    flex: 0 0 240px;
+  }
+}
+/* Общие стили */
+header {
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+#burger-toggle {
+  display: none;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  
+  background: var(--accent-pink);
+  #burger-toggle:checked + .burger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#burger-toggle:checked + .burger span:nth-child(2) {
+  opacity: 0;
+}
+
+#burger-toggle:checked + .burger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+}
+
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  #burger-toggle:checked + .burger + nav ul {
+    max-height: 500px; /* меню раскроется */
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
   </style>
 </head>
 <body>
  <header>
   <div style="display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: auto;">
     <img src="https://i.pinimg.com/736x/1a/e2/9e/1ae29edcf61869a44d5ceea19dd3a9d5.jpg" alt="Логотип" style="height: 150px; margin-left: 10px; background: transparent;" />
+    <input type="checkbox" id="burger-toggle" />
+    <label for="burger-toggle" class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
     <nav>
       <ul>
         <li><a href="#about">О нас</a></li>
@@ -274,6 +443,10 @@
   </div>
 </header>
 
+
+
+
+  
 
   <div class="banner">
     
